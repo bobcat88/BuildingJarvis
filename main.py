@@ -25,3 +25,4 @@ if __name__ == "__main__":
     speak(f"welcome{author}, I am nina")
     speak(f'what would you like me to do for you today?')
     engine.runAndWait()
+    

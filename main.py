@@ -1,3 +1,5 @@
+import datetime
+
 import pyttsx3
 
 engine = pyttsx3.init('sapi5')
@@ -11,9 +13,10 @@ engine.setProperty('voice', voices[1].id)
 #    index += 1
 # engine.runAndWait()
 
-# voice selector ?
+# voice selector?
 
 author = "Jo"
+
 
 # define the speak function
 def speak(audio):
@@ -21,8 +24,20 @@ def speak(audio):
     engine.runAndWait()
 
 
+# define the greetings function
+def greetings():
+    hour = int(datetime.datetime.now().hour)
+    if 0 <= hour < 12:
+        speak(f"Good Morning {author}")
+    elif 12 <= hour < 18:
+        speak(f"Good Afternoon {author}")
+    else:
+        speak(f"Good Evening {author}")
+    speak(f"what would you like me to do for you today?")
+
+
+
 if __name__ == "__main__":
     speak(f"welcome{author}, I am nina")
-    speak(f'what would you like me to do for you today?')
+    greetings()
     engine.runAndWait()
-    
